@@ -18,6 +18,4 @@
 
 	<!--  disabled -->
 
-</div>
-
 <%@ include file="../layout/footer.jsp"%>
