@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
@@ -27,6 +28,7 @@ public class Board {
 	@Lob		// 칼럼을 4GB로 생성
 	private String content;
 
+	@JoinColumn(name = "userId")	// FK 이름 설정하기
 	@ManyToOne
-	private User user;		// object로 설정해야함 private 'User'
+	private User user;		// object로 설정해야함 private 'User' - DB에 FK
 }
