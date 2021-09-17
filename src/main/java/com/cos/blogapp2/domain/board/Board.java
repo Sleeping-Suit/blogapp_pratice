@@ -13,22 +13,24 @@ import com.cos.blogapp2.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Builder
-@Entity
-@Getter
 @AllArgsConstructor
-
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
 public class Board {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String title;
-	@Lob		// 칼럼을 4GB로 생성
+	@Lob // 칼럼을 4GB 로 생성
 	private String content;
-
-	@JoinColumn(name = "userId")	// FK 이름 설정하기
+	
+	@JoinColumn(name = "userId") // FK 이름 설정하기
 	@ManyToOne
-	private User user;		// object로 설정해야함 private 'User' - DB에 FK
+	private User user; // DB에 FK
 }

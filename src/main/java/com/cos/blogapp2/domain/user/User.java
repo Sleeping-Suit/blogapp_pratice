@@ -8,19 +8,21 @@ import javax.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor	// JPA는 모델생성시 기본 생성자가 꼭 필요하다.
 @Getter
 @Entity	// 이게 있어야 테이블이 만들어 진다.
 // DB에 가져올때, 화면에서 주입할 때 - Setter는 실무에서 사용하지 않음. 초기화 사용으로 실무에서는 생성자를 쓴다.
 
 public class User {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String username;
 	private String password;
 	private String email;
+	
 }

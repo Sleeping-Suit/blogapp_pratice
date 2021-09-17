@@ -22,22 +22,39 @@
 	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 </head>
 
-</head>
 <body>
 
-	<div class="container">
-		<h2>ITLOG</h2>
-		<p>사이트 버튼 클릭해주시기 바랍니다.</p>
-		<ul class="nav flex-column">
+	<!-- 네브바 시작 -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<a class="navbar-brand" href="/">ITLOG</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
 
-			<li class="nav-item"><a class="nav-link" href="/loginForm">로그인</a>
-			</li>
+				<c:choose>
+					<c:when test="${empty sessionScope.principal}">
+						<li class="nav-item"><a class="nav-link" href="/loginForm">로그인</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/joinForm">회원가입</a>
+						</li>
+					</c:when>
+					<c:otherwise>
+						<li class="nav-item"><a class="nav-link" href="/board/saveForm">글쓰기</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/user/${sessionScope.principal.id}">회원정보</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a>
+						</li>
+					</c:otherwise>
+				</c:choose>
 
-			<li class="nav-item"><a class="nav-link" href="/joinForm">회원가입</a>
-			</li>
 
-		</ul>
-	</div>
 
-</body>
-</html>
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<!-- 네브바 끝 -->

@@ -15,8 +15,8 @@ public class JoinReqDto {
 	private String email;
 	
 	public User toEntity() {
-		// Bulider 장점 - 순서 안지켜도 됨, 넣고 싶은 것만 넣을 수 있다.
-		User user = User.builder().username(username).password(password).email(email).build();
+		// 장점 : 순서안지켜도 됨, 넣고 싶은 것만 넣을 수 있다.
+		User user = User.builder().password(password).username(username).email(email).build();
 		return user;
 	}
 }

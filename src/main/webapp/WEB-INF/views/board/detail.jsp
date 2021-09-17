@@ -7,18 +7,18 @@
 		<form action="#" method="post" style="display:inline-block">
 			<button id="btn-delete" class="btn btn-danger" type="submit">삭제</button>
 		</form>
-
+		
 	<br /><br />
 	<div>
-		글 번호 : 1</span> 작성자 : <span><i>홍길동</i></span>
+		글 번호 : ${boardEntity.id}</span> 작성자 : <span><i>${boardEntity.user.username} </i></span>
 	</div>
 	<br />
 	<div>
-		<h3>제목입니다.</h3>
+		<h3>${boardEntity.title}</h3>
 	</div>
 	<hr />
 	<div>
-		<div>내용입니다.</div>
+		<div>${boardEntity.content}</div>
 	</div>
 	<hr />
 
@@ -33,7 +33,7 @@
 		</form>
 	</div>
 	<br />
-
+	
 	<div class="card">
 		<div class="card-header"><b>댓글 리스트</b></div>
 		<ul id="reply-box" class="list-group">
@@ -49,4 +49,4 @@
 	<br/>
 </div>
 
-<%@ include file="../layout/footer.jsp"%> 
+<%@ include file="../layout/footer.jsp"%>
